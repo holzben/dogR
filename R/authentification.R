@@ -23,16 +23,14 @@
 # set_new if new user wants to enter new credentials
 authentication <- function(set_new = FALSE){
   if(!.is_key_length_ok() | set_new){
-    Sys.setenv(DATADOG_API_KEY = .ask_for_secret("API Key "))
-    Sys.setenv(DATADOG_APP_KEY = .ask_for_secret("Application Key"))
+    Sys.setenv(DATADOG_API_KEY = .ask_for_secret("API Key: "))
+    Sys.setenv(DATADOG_APP_KEY = .ask_for_secret("Application Key: s"))
 
     if(!.is_key_length_ok())
       warning("Authentification failed.")
 
     return("Keys saved.")
 
-  }else{
-    return("")
   }
 
 }
