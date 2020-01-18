@@ -1,43 +1,18 @@
-#' Escape sequence
+#' Escape sequence.
 #'
 #' @description
-#' \code{esc()} escapes " for DataDog log queries.
+#' \code{quote()} escapes " for Datadog log queries.
 #'
-#' @usage esc(string)
+#' @usage quote(str)
 #'
-#' @param str a string which shoud be under ".
+#' @param str a string which should be under ".
 #' @return an escaped string.
 #'
 #' @details The function can be used if " would be necessary in Datadog. This is the case if a exact match
 #' of the string sequence should be searched.
 #'
 #' @author Benjamin Holzknecht
-#' @keywords query, ewcape sequences
-#' @examples
-#'
-#'esc("200 POST")
-#'
-
-esc <- function(str){
-  return(paste0("\\\"", str, "\\\""))
-}
-
-
-#' Escape sequence
-#'
-#' @description
-#' \code{quote()} escapes " for DataDog log queries.
-#'
-#' @usage quote(string)
-#'
-#' @param str a string which shoud be under ".
-#' @return an escaped string.
-#'
-#' @details The function can be used if " would be necessary in Datadog. This is the case if a exact match
-#' of the string sequence should be searched.
-#'
-#' @author Benjamin Holzknecht
-#' @keywords query, ewcape sequences
+#' @keywords query, escape sequences
 #' @examples
 #'
 #'quote("200 POST")

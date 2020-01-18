@@ -1,42 +1,52 @@
-#' Log files quering - httr
+#' Log files quering - httr.
 #'
 #' @description
-#' \code{query_logs_httr(query)} Send a httr POST request Data Dog API.
+#' \code{query_logs_httr()} Send a httr POST request Datadog-API.
 #'
-#' @param query the search query using the datadog search syntax.
-#' @param time_from the starting point as ISO-8601 string, unix timestamp or in realtive time eg. \code{now -10m, now - 1h, now - 1d}.
-#' @param time_to the end point as ISO-8601 string, unix timestamp or in realtive time eg. \code{now -10m, now - 1h, now - 1d}.
+#' @param query the search query using the Datadog search syntax.
+#' @param time_from the starting point as ISO-8601 string, Unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.
+#' @param time_to the end point as ISO-8601 string, Unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.
 #' @param ... optional parameters.
-#' @return httr reuest including headers and body.
+#' @return httr request including headers and body.
 #'
-#' @details More details on all optional parameters can be found at the Datadog API description: <https://docs.datadoghq.com/api/?lang=bash#logs-indexes>.
+#' @details More details on all optional parameters can be found at the Datadog-API
+#' description: \href{https://docs.datadoghq.com/api/?lang=bash#logs-indexes}{Datadog-API}
 #'
-#' For the request the addresses spesified with \link{set_api_top_level_domains()} are used.
+#' For the request the addresses specified with \code{\link{set_api_top_level_domains}} are used.
+#'
+#' By default maximum 10 logs will be returned per response, higher numbers can be set via the \code{limit} parameter with
+#' a maximum of \code{limit = 1000}.
 #'
 #' @usage
-#' query_logs(query, time_from = "now -1h", time_to = "now")
+#' query_logs_httr(query, time_from = "now -1h", time_to = "now", ...)
 #'
 #' @author Benjamin Holzknecht
-#' @seealso query_logs_df, set_api_top_level_domains, send_logs,
+#' @seealso \code{\link{query_logs_df}}, \code{\link{set_api_top_level_domains}}, \code{\link{send_json}}
 #' @keywords query, logs
 #' @examples
 #'
 #' \dontrun{
 #'
-#' query_logs_httr("Transaction Success service:sdk_api", time_from = "now -1d", limit = 20)
+#' query_logs_httr("POST 200", time_from = "now -1d")
 #'
 #' # get all from last hour
-#' query_logs_httr("Transaction Success service:sdk_api", time_from = "now -1d", limit = Inf)
+#' query_logs_httr("POST 200", time_from = "now -1d", limit = 30)
+#'
+#'
+#' # limtit = 1000 --> maximum per response
+#' query_logs_httr("POST 200", time_from = "now -1d", limit = 1000)
+#'
+#' # to get the same result as query_logs_df
+#' response <- query_logs_httr("POST 200", time_from = "now -1d", limit = 1000)
+#' response <- jsonlite::fromJSON(httr::content(response, type = "text"), flatten = TRUE)
+#'
+#' # cast to df
+#' as.data.frame(response$logs)
 #'
 #' }
 
 query_logs_httr <- function(query, time_from = "now -1h", time_to = "now", ...) {
-  suppressPackageStartupMessages({
-    require("dplyr", quietly = FALSE, warn.conflicts = FALSE)
-  })
-
-  # TODO: Check why the shit shows up!!!
-  #authentication(set_new = FALSE)
+  authentication(set_new = FALSE)
   .check_parameters(query = query, time_from = time_from, time_to = time_to, ...)
 
   req <- .get_httr_request(query = query, time_from = time_from, time_to = time_to, ...)
@@ -46,33 +56,41 @@ query_logs_httr <- function(query, time_from = "now -1h", time_to = "now", ...) 
 }
 
 
-#' Log files quering - df
+#' Log files quering - df.
 #'
 #' @description
-#' \code{query_logs_df(query)} sends a httr POST request via Data Dog API and returns a \code{dplyr::data_frame()}.
+#' \code{query_logs_df()} sends a httr POST request via
+#' Datadog-API and returns a \code{data.frame()}.
 #'
-#' @param query the search query using the datadog search syntax.
-#' @param time_from the starting point as ISO-8601 string, unix timestamp or in realtive time eg. \code{now -10m, now - 1h, now - 1d}.
-#' @param time_to the end point as ISO-8601 string, unix timestamp or in realtive time eg. \code{now -10m, now - 1h, now - 1d}.
+#' @param query the search query using the Datadog search syntax.
+#' @param time_from the starting point as ISO-8601 string, unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.
+#' @param time_to the end point as ISO-8601 string, unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.
 #' @param ... optional parameters.
-#' @return \code{dplyr::data_frame()} with the result data.
+#' @param include_meta_data should Datadog query metadata be included?
+#' @return \code{data.frame()} with the result data or an empty \code{data.frame()}.
 #'
-#' @details Only the query result will be returned, for metadata and request headers use \link{query_logs_httr}
-#' More details on all optional parameters can be found at the Datadog API description: <https://docs.datadoghq.com/api/?lang=bash#logs-indexes>.
+#' @details Only the query result will be returned, for metadata and request headers use \code{\link{query_logs_httr}}.
+#' More details on all optional parameters can be found at the Datadog API description: \href{https://docs.datadoghq.com/api/?lang=bash#logs-indexes}{Datadog-API}
 #'
-#' For the request the addresses spesified with \link{set_api_top_level_domains()} are used.
+#' For the request the addresses specified with \code{\link{set_api_top_level_domains}} are used.
 #'
+#' By default maximum 10 logs will be returned per response, higher numbers can be set via the \code{limit} parameter with
+#' a maximum of \code{limit = 1000}.
+#'
+#' In case no results are found or invalid parameters are used for the request, a empty \code{data.frame()} will
+#' be returned.
+#'
+#' For more details about the httr response see \href{https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html}{httr-package.}
 #'
 #' @usage
-#' query_logs_df(query, time_from = "now -1h", time_to = "now")
+#' query_logs_df(query, time_from = "now -1h", time_to = "now", ...,
+#'               include_meta_data = FALSE)
 #'
 #' @author Benjamin Holzknecht
-#' @seealso query_logs_httr, set_api_top_level_domains, send_logs,
+#' @seealso \code{\link{query_logs_httr}}, \code{\link{set_api_top_level_domains}}, \code{\link{send_json}}
 #' @keywords query, logs
 #' @examples
 #'
-#' @details The function sends a curl line to the Data Dog API and returns the matching lines. One row of the returning dataframe corresponds to
-#' one search result. The rows represent the attributes, same as in the Data Dog interface.
 #'
 #' @author Benjamin Holzknecht
 #' @keywords query, logs
@@ -80,37 +98,38 @@ query_logs_httr <- function(query, time_from = "now -1h", time_to = "now", ...) 
 #'
 #' \dontrun{
 #'
-#' query_logs_df("Transaction Success service:sdk_api", time_from = "now -1d", limit = 20)
+#' query_logs_df("POST 200", time_from = "now -1d")
 #'
 #' # get all from last hour
-#' query_logs_df("Transaction Success service:sdk_api", time_from = "now -1d", limit = Inf)
+#' query_logs_df("POST 200", time_from = "now -1d", limit = 30)
+#'
+#' # with ISO 8601 date-time format
+#' query_logs_df("POST 200", time_from = "2020-01-18T13:00Z", limit = 1)
+#'
+#' # limtit = 1000 --> maximum per response
+#' query_logs_df("POST 200", time_from = "now -1d", limit = 1000)
+#'
 #'
 #' }
 
-
-
-query_logs_df <- function(query, time_from = "now -1h", time_to = "now", ..., include_meta_data = FALSE, api_tld = ".eu") {
-  suppressPackageStartupMessages({
-    require("dplyr", quietly = FALSE, warn.conflicts = FALSE)
-  })
-
-  req <- query_logs_httr(query, time_from, time_to, ..., api_tld)
+query_logs_df <- function(query, time_from = "now -1h", time_to = "now", ...,
+                          include_meta_data = FALSE) {
+  req <- query_logs_httr(query, time_from, time_to, ...)
 
   if(req$status_code != 200){
-    warning(req)
-    return(as_tibble())
+    warning(req, call. = FALSE)
+    return(data.frame())
   }
 
-  parsed <- jsonlite::fromJSON(httr::content(req, type = "text"), flatten = TRUE)
-  parsed$logs <- dplyr::as_tibble(parsed$logs)
+  parsed <- jsonlite::fromJSON(httr::content(req, type = "text", encoding = "UTF-8"), flatten = TRUE)
+  parsed$logs <- as.data.frame(parsed$logs)
 
   if(include_meta_data)
     return(parsed)
 
-  return( parsed$logs)
+  return(parsed$logs)
 
 }
-
 
 
 .get_httr_request <- function(query, time_from, time_to, ...){
@@ -122,14 +141,17 @@ query_logs_df <- function(query, time_from = "now -1h", time_to = "now", ..., in
   in_body <- c(list(query = query,  time = list(from = time_from, to = time_to)),
                list(...))
 
-  return(httr::POST(url = url, body = in_body, encode = "json"))
+  # remove url since keys are included
+  req <- httr::POST(url = url, body = in_body, encode = "json")
+  req$url <- ""
+  return(req)
 
 }
 
 .check_parameters <- function(query, time_from, time_to, ...){
   req <- any(sapply(c(query, time_from, time_to), FUN = function(x) is.na(x) | is.null(x)))
   if(req)
-    warning("Missing or invalid required parameter.")
+    warning("Missing or invalid required parameter.", call. = FALSE)
 
   nam <- names(list(...))
   kown <- c("index", "limit", "time_timezone", "time.timezone", "time.offset", "time_offset", "startAt", "sort")
@@ -138,6 +160,3 @@ query_logs_df <- function(query, time_from = "now -1h", time_to = "now", ..., in
     warning(paste0("Unknown optional parameter: ", paste(nam[i], collapse = " ")))
 
 }
-
-
-
