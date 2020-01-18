@@ -151,6 +151,8 @@ set_api_url <- function(api_url, api_type = c("query", "send")){
 #'}
 
 
+
+
 get_api_urls <- function(){
   if(.is_empty_send()){
     warning("No Datadog-API address for SEND is set, seting .eu address.", call. = FALSE)
