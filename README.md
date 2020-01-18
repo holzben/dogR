@@ -15,3 +15,7 @@ or via github:
 ```{r, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("holzben/dogR")
+```
+
+# Wiki
+See [Wiki](https://github.com/holzben/dogR/wiki) for a short introduction.
