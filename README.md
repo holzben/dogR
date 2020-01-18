@@ -1,5 +1,5 @@
 # dogR
-The aim of the package is to provide a wrapper for the [Datadog-API](https://docs.datadoghq.com/api/)
+The aim of the package is to provide a wrapper for the [Datadog-API](https://docs.datadoghq.com/api/):
 
 This R package provides functions for:
 * Managing Datadog-Api credentials in an R session
