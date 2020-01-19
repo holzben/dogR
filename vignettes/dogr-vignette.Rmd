@@ -82,7 +82,7 @@ send_plain_text(mbody)
                "POST 400 https://github.com/holzben_not",
                "POST 500 Good: https://github.com/holzben_not"))
 
- # convert data.frame to JSON and send it ...
+ # convert data.frame to json and send it ...
  send_json(jsonlite::toJSON(df))
 #> Response []
 #>   Date: 2020-01-18 16:36
@@ -93,10 +93,10 @@ send_plain_text(mbody)
 
 Also for getting logs from Datadog two functions are available. `query_logs_httr()`
 returns the the complete `httr` (see also [httr-package](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html))
-response with al headers.
+response with all headers.
 
 ```{r, eval=FALSE}
-# get httr responce
+# get httr response
 response <- query_logs_httr("POST 200", time_from = "now -1d", limit = 1)
 response
 #> Response []
@@ -119,13 +119,13 @@ jsonlite::fromJSON(httr::content(response, type = "text"), flatten = TRUE)
 #> 1  https://github.com/holzben                            200
 #>   content.attributes.env
 #> 1                   prod
-#> 
+#>
 #> $nextLogId
 #> [1] "AQAAAW-5fNVJzLI9KAAAAABBVy01Zk5WSm9PT25RLWxBTzEwVQ"
-#> 
+#>
 #> $status
 #> [1] "done"
-#> 
+#>
 #> $requestId
 #> [1] "Mjd3QXVNSmhRci01LUYyXy03dGFTZ3w4RDVtT2l4ZGM1eHVLRTJ0VS1qTlJR"
 ```

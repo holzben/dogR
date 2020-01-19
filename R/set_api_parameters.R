@@ -9,7 +9,7 @@
 #' @param api_type which type \code{"query"}, \code{"send"} or both \code{c("query", "send")}.
 #'
 #' @details Depending on your geographic location the Datadog-API address toplevel domain changes, see also \href{https://docs.datadoghq.com/api/?lang=bash#api-reference}{Datadog-API}.
-#' Currently following urls are implemented and choosen according to the parameters, for US:
+#' Currently following urls are implemented and chosen according to the parameters, for US:
 #' \itemize{
 #'  \item{"send"}{\href{https://http-intake.logs.datadoghq.us/v1/input/}{Datadog-API}}
 #'  \item{"queries"}{\href{https://api.datadoghq.us/api/v1/logs-queries}{Datadog-API}}

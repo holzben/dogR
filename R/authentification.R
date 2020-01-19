@@ -5,13 +5,14 @@
 #'
 #' @usage authentication(set_new = FALSE)
 #'
-#' @param set_new \code{TRUE} for setting nev credentials.
+#' @param set_new \code{TRUE} for setting new credentials.
 #'
 #' @return \code{"Keys saved."}
+#'
 #' @details For each session the key’s will saved in an environment variable, use \code{set_new = TRUE} for entering new credentials.
-#' For each key pair the length will be checked, Dataadog API-Key is expected to have 32 and the Datadog Application-Key is
+#' For each key pair the length will be checked, Datadog API-Key is expected to have 32 and the Datadog Application-Key is
 #' expected to have 40 characters.
-#' A warning massage occur if the length differs.
+#' A warning message occur if the length differs.
 #'
 #' @author Benjamin Holzknecht
 #' @keywords authentication

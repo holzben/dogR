@@ -8,7 +8,7 @@
 #' @param str a string which should be under ".
 #' @return an escaped string.
 #'
-#' @details The function can be used if " would be necessary in Datadog. This is the case if a exact match
+#' @details The function can be used if " would be necessary in Datadog. This is the case if an exact match
 #' of the string sequence should be searched.
 #'
 #' @author Benjamin Holzknecht
