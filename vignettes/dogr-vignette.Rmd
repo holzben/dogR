@@ -23,7 +23,7 @@ DogR provides functionality for sending logs to Datadog and quering them from Da
 For interacting with the Datadog-API a APPlication- and API-Key is necessary. They can easily be created under
 Integrations - APIs.
 
-![Datadog API- and Application Keys.](/home/ben/workspace/R/dogR/vignettes/datadog_keys.png){width=100%}
+![Datadog API- and Application Keys.](./datadog_keys.png){width=100%}
 
 
 ## Steup-R

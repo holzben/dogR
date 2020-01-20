@@ -16,7 +16,7 @@ an escaped string.
 \code{quote()} escapes " for Datadog log queries.
 }
 \details{
-The function can be used if " would be necessary in Datadog. This is the case if a exact match
+The function can be used if " would be necessary in Datadog. This is the case if an exact match
 of the string sequence should be searched.
 }
 \examples{

@@ -16,7 +16,7 @@ set_api_top_level_domains(api_tld = c(".eu", ".us"), api_type = c("query", "send
 }
 \details{
 Depending on your geographic location the Datadog-API address toplevel domain changes, see also \href{https://docs.datadoghq.com/api/?lang=bash#api-reference}{Datadog-API}.
-Currently following urls are implemented and choosen according to the parameters, for US:
+Currently following urls are implemented and chosen according to the parameters, for US:
 \itemize{
  \item{"send"}{\href{https://http-intake.logs.datadoghq.us/v1/input/}{Datadog-API}}
  \item{"queries"}{\href{https://api.datadoghq.us/api/v1/logs-queries}{Datadog-API}}
@@ -24,7 +24,7 @@ Currently following urls are implemented and choosen according to the parameters
 and for Europa:
 \itemize{
  \item{"send"}{\href{https://http-intake.logs.datadoghq.eu/v1/input/}{Datadog-API}}
- \item{"queries"}{\href{https://api.datadoghq.eu/api/v1/logs-queries>}{Datadog-API}}
+ \item{"queries"}{\href{https://api.datadoghq.eu/api/v1/logs-queries}{Datadog-API}}
 }
 }
 \examples{

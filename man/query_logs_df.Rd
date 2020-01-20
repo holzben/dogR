@@ -10,9 +10,9 @@ query_logs_df(query, time_from = "now -1h", time_to = "now", ...,
 \arguments{
 \item{query}{the search query using the Datadog search syntax.}
 
-\item{time_from}{the starting point as ISO-8601 string, unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.}
+\item{time_from}{the starting point as ISO-8601 string, Unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.}
 
-\item{time_to}{the end point as ISO-8601 string, unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.}
+\item{time_to}{the end point as ISO-8601 string, Unix timestamp or in relative time eg. \code{now -10m, now - 1h, now - 1d}.}
 
 \item{...}{optional parameters.}
 
@@ -34,7 +34,7 @@ For the request the addresses specified with \code{\link{set_api_top_level_domai
 By default maximum 10 logs will be returned per response, higher numbers can be set via the \code{limit} parameter with
 a maximum of \code{limit = 1000}.
 
-In case no results are found or invalid parameters are used for the request, a empty \code{data.frame()} will
+In case no results are found or invalid parameters are used for the request, an empty \code{data.frame()} will
 be returned.
 
 For more details about the httr response see \href{https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html}{httr-package.}
