@@ -1,10 +1,10 @@
 Package: dogR
 Type: Package
-Title: A Package for Datadog log Searching
+Title: Datadog log Searching
 Version: 1.0.1
 Author: Benjamin Holzknecht
 Maintainer: Benjamin Holzknecht <benjamin.holzknecht@gmail.com>
-Description: dogR provides functionality for quering and sending logs from and to Datadog using the Datadog-API <https://docs.datadoghq.com/api/>.
+Description: Provides functionality for quering and sending logs to the monitoring service Datadog using the Datadog-API <https://docs.datadoghq.com/api/>.
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
