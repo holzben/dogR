@@ -21,7 +21,8 @@
 #' }
 #'
 #' @author Benjamin Holzknecht
-#' @keywords Datadog-API address, top level domains
+#' @concept Datadog API address
+#' @concept top level domains
 #' @seealso set_api_url()
 #'
 #' @examples
@@ -74,7 +75,8 @@ set_api_top_level_domains <- function(api_tld = c(".eu", ".us"), api_type = c("q
 #'
 #'
 #' @author Benjamin Holzknecht
-#' @keywords Datadog-API address, top level domains
+#' @concept Datadog-API address
+#' @concept top level domains
 #' @seealso set_api_top_level_domains()
 #'
 #' @examples
@@ -134,7 +136,8 @@ set_api_url <- function(api_url, api_type = c("query", "send")){
 #' @details As default the \code{.eu} address pair will be used.
 #'
 #' @author Benjamin Holzknecht
-#' @keywords Datadog-API address, top level domains
+#' @concept Datadog-API address
+#' @concept top level domains
 #' @seealso \code{\link{set_api_url}}, \code{\link{set_api_top_level_domains}}
 #'
 #' @examples

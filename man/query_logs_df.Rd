@@ -41,8 +41,6 @@ For more details about the httr response see \href{https://cran.r-project.org/we
 }
 \examples{
 
-
-
 \dontrun{
 
 query_logs_df("POST 200", time_from = "now -1d")
@@ -64,8 +62,6 @@ query_logs_df("POST 200", time_from = "now -1d", limit = 1000)
 }
 \author{
 Benjamin Holzknecht
-
-Benjamin Holzknecht
 }
 \keyword{logs}
-\keyword{query,}
+\keyword{query}

@@ -35,8 +35,5 @@ set_api_top_level_domains()
 \author{
 Benjamin Holzknecht
 }
-\keyword{Datadog-API}
-\keyword{address,}
-\keyword{domains}
-\keyword{level}
-\keyword{top}
+\concept{Datadog-API address}
+\concept{top level domains}

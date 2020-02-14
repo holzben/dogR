@@ -12,7 +12,7 @@
 #' of the string sequence should be searched.
 #'
 #' @author Benjamin Holzknecht
-#' @keywords query, escape sequences
+#' @keywords escape sequences
 #' @examples
 #'
 #'quote("200 POST")

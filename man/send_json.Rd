@@ -54,3 +54,5 @@ send_json(jsonlite::toJSON(df))
 \seealso{
 \code{\link{send_plain_text}}, \code{\link{set_api_top_level_domains}}
 }
+\keyword{logs}
+\keyword{send}

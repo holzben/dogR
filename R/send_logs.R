@@ -13,6 +13,7 @@
 #'
 #' @seealso \code{\link{send_json}}, \code{\link{set_api_top_level_domains}}, \code{\link[httr]{POST}}
 #'
+#' @keywords send logs
 #' @examples
 #'
 #' \dontrun{
@@ -44,6 +45,7 @@ send_plain_text <- function(message_body){
 #'
 #' @seealso \code{\link{send_plain_text}}, \code{\link{set_api_top_level_domains}}
 #'
+#' @keywords send logs
 #' @examples
 #'
 #'\dontrun{

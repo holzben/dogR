@@ -28,5 +28,4 @@ quote("200 POST")
 Benjamin Holzknecht
 }
 \keyword{escape}
-\keyword{query,}
 \keyword{sequences}

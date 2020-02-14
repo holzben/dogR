@@ -22,7 +22,7 @@
 #'
 #' @author Benjamin Holzknecht
 #' @seealso \code{\link{query_logs_df}}, \code{\link{set_api_top_level_domains}}, \code{\link{send_json}}
-#' @keywords query, logs
+#' @keywords query logs
 #' @examples
 #'
 #' \dontrun{
@@ -88,12 +88,7 @@ query_logs_httr <- function(query, time_from = "now -1h", time_to = "now", ...) 
 #'
 #' @author Benjamin Holzknecht
 #' @seealso \code{\link{query_logs_httr}}, \code{\link{set_api_top_level_domains}}, \code{\link{send_json}}
-#' @keywords query, logs
-#' @examples
-#'
-#'
-#' @author Benjamin Holzknecht
-#' @keywords query, logs
+#' @keywords query logs
 #' @examples
 #'
 #' \dontrun{

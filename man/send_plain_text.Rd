@@ -33,3 +33,5 @@ send_plain_text(mbody)
 \seealso{
 \code{\link{send_json}}, \code{\link{set_api_top_level_domains}}, \code{\link[httr]{POST}}
 }
+\keyword{logs}
+\keyword{send}

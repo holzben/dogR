@@ -19,12 +19,12 @@ Depending on your geographic location the Datadog-API address toplevel domain ch
 Currently following urls are implemented and chosen according to the parameters, for US:
 \itemize{
  \item{"send"}{\href{https://http-intake.logs.datadoghq.us/v1/input/}{Datadog-API}}
- \item{"queries"}{\href{https://api.datadoghq.us/api/v1/logs-queries}{Datadog-API}}
+ \item{"queries"}{\href{https://api.datadoghq.us/api/v1/logs-queries/}{Datadog-API}}
 }
 and for Europa:
 \itemize{
  \item{"send"}{\href{https://http-intake.logs.datadoghq.eu/v1/input/}{Datadog-API}}
- \item{"queries"}{\href{https://api.datadoghq.eu/api/v1/logs-queries}{Datadog-API}}
+ \item{"queries"}{\href{https://api.datadoghq.eu/api/v1/logs-queries/}{Datadog-API}}
 }
 }
 \examples{
@@ -49,8 +49,5 @@ set_api_url()
 \author{
 Benjamin Holzknecht
 }
-\keyword{Datadog-API}
-\keyword{address,}
-\keyword{domains}
-\keyword{level}
-\keyword{top}
+\concept{Datadog API address}
+\concept{top level domains}

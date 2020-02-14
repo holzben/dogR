@@ -35,8 +35,5 @@ get_api_urls()
 \author{
 Benjamin Holzknecht
 }
-\keyword{Datadog-API}
-\keyword{address,}
-\keyword{domains}
-\keyword{level}
-\keyword{top}
+\concept{Datadog-API address}
+\concept{top level domains}

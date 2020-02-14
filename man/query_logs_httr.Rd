@@ -59,4 +59,4 @@ as.data.frame(response$logs)
 Benjamin Holzknecht
 }
 \keyword{logs}
-\keyword{query,}
+\keyword{query}
